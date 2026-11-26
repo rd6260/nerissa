@@ -5,7 +5,7 @@ import { supabase } from "@/lib/supabase";
 
 export type JoinState =
   | { status: "idle" }
-  | { status: "success"; name: string }
+  | { status: "success"; name: string; position: number }
   | { status: "error"; message: string };
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -24,7 +24,7 @@ export async function joinWaitlist(
     return { status: "error", message: "Please enter a valid email." };
   }
 
-  const { error } = await supabase.rpc("join_waitlist", {
+  const { data, error } = await supabase.rpc("join_waitlist", {
     p_name: name,
     p_email: email,
   });
@@ -34,5 +34,9 @@ export async function joinWaitlist(
   }
 
   refresh();
-  return { status: "success", name: name.split(" ")[0] };
+  return {
+    status: "success",
+    name: name.split(" ")[0],
+    position: Number(data),
+  };
 }
