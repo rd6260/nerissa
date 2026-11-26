@@ -49,13 +49,14 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <div className="gold-rule w-10" />
               <span className="font-serif text-lg italic text-gold">
-                an invitation
+                for the legal mind
               </span>
               <div className="gold-rule w-10" />
             </div>
-            <p className="max-w-xs text-[14px] leading-7 text-muted">
-              A considered experience, opening first to a select few. Reserve
-              your place on the list.
+            <p className="max-w-sm text-[15px] leading-7 text-muted">
+              An AI assistant for lawyers and clerks. Nerissa handles your
+              drafting, scheduling and research &mdash; leaving you free for
+              the work that truly demands your intellect.
             </p>
           </header>
 
